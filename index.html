@@ -115,6 +115,16 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -147,10 +157,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="行走云端">
+      <meta itemprop="description" content="学无止境">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行走云端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">计算机组成概念</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-25 11:48:02" itemprop="dateCreated datePublished" datetime="2025-02-25T11:48:02+08:00">2025-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-26 20:41:35" itemprop="dateModified" datetime="2025-02-26T20:41:35+08:00">2025-02-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>计算机系统  &#x3D;  硬件+软件</p>
+<h1 id="计算机发展"><a href="#计算机发展" class="headerlink" title="计算机发展"></a>计算机发展</h1><p>硬件的发展：电子管 -&gt; 晶体管 -&gt; 中小规模集成电路时代 -&gt; 大规模  &#x2F; 超大规集成电路时代</p>
+<p>软件的组成：系统级软件  +  应用软件</p>
+<p>系统级软件：操作系统，数据库管理系统，翻译程序(将高级语言翻译为二进制代码，编译器，汇编器，解释器统称为翻译程序)</p>
+<p>应用程序：QQ，微信，微博</p>
+<h1 id="硬件基本组成"><a href="#硬件基本组成" class="headerlink" title="硬件基本组成"></a>硬件基本组成</h1><p>现代的计算机以存储器为中心</p>
+<p>硬件包括：主机 + 外设</p>
+<p>主机包括：主存储器  + 运算器 + 控制器</p>
+<p>辅存也属于外设，运行内存指的是主存，机身存储指的是外存</p>
+<p>CPU包括：运算器 + 控制器</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-18-45-27-image.png"></p>
+<h1 id="硬件的部件"><a href="#硬件的部件" class="headerlink" title="硬件的部件"></a>硬件的部件</h1><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><p>组成：存储体（由存储单元组成） + MAR（存储地址寄存器）+MDR（存储数据寄存器）</p>
+<p>字（word）是存储单元中二进制代码的组成 ，所以是不固定的（要根据寄存器的位数）</p>
+<p>字节（Byte） &#x3D; 8bit，是固定的</p>
+<p>1B &#x3D; 1个字节   1b&#x3D; 1个bit</p>
+<p>主存与cpu之间  ↔  传输数据</p>
+<img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-18-53-24-image.png" title="" alt="" width="255">
+
+<img title="" src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-18-55-28-image.png" alt="" width="255">
+
+
+
+<p>现代电脑有些将 MAR 与 MDR 划分给CPU</p>
+<h2 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h2><p>组成：ACC(累加器∈寄存器) + MQ（乘商寄存器）+X（通用寄存器）+ <mark>ALU（算术逻辑单元）</mark></p>
+<img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-19-02-14-image.png" title="" alt="" width="260">
+
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p>组成 ： <mark>CU(控制单元，执行指令)</mark> + IR(指令寄存器，分析指令) + PC(程序计数器，取指令)</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-19-05-02-image.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/24/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="行走云端">
       <meta itemprop="description" content="学无止境">
     </span>
@@ -170,10 +272,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-02-24 08:26:16 / 修改时间：08:24:57" itemprop="dateCreated datePublished" datetime="2025-02-24T08:26:16+08:00">2025-02-24</time>
+              <time title="创建时间：2025-02-24 08:26:16" itemprop="dateCreated datePublished" datetime="2025-02-24T08:26:16+08:00">2025-02-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-25 19:29:55" itemprop="dateModified" datetime="2025-02-25T19:29:55+08:00">2025-02-25</time>
+              </span>
 
           
 
@@ -272,6 +380,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="行走云端"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">行走云端</p>
   <div class="site-description" itemprop="description">学无止境</div>
 </div>
@@ -280,7 +390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,7 +417,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2025-02 – 
   <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -346,6 +456,8 @@
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
 
 
   
