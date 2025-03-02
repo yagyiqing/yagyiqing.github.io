@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
   <meta name="description" content="计算机系统  &#x3D;  硬件+软件 计算机发展硬件的发展：电子管 -&gt; 晶体管 -&gt; 中小规模集成电路时代 -&gt; 大规模  &#x2F; 超大规集成电路时代 软件的组成：系统级软件  +  应用软件 系统级软件：操作系统，数据库管理系统，翻译程序(将高级语言翻译为二进制代码，编译器，汇编器，解释器统称为翻译程序) 应用程序：QQ，微信，微博 硬件基本组成现代的计算机以存储器">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-19-02-14-image.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-19-05-02-image.png">
 <meta property="article:published_time" content="2025-02-25T03:48:02.000Z">
-<meta property="article:modified_time" content="2025-02-26T12:41:35.861Z">
+<meta property="article:modified_time" content="2025-03-02T09:54:29.783Z">
 <meta property="article:author" content="行走云端">
+<meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-18-45-27-image.png">
 
@@ -109,6 +110,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -138,11 +140,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -196,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-02-26 20:41:35" itemprop="dateModified" datetime="2025-02-26T20:41:35+08:00">2025-02-26</time>
+                <time title="修改时间：2025-03-02 17:54:29" itemprop="dateModified" datetime="2025-03-02T17:54:29+08:00">2025-03-02</time>
               </span>
 
           
@@ -230,8 +259,6 @@
 
 <img title="" src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-18-55-28-image.png" alt="" width="255">
 
-
-
 <p>现代电脑有些将 MAR 与 MDR 划分给CPU</p>
 <h2 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h2><p>组成：ACC(累加器∈寄存器) + MQ（乘商寄存器）+X（通用寄存器）+ <mark>ALU（算术逻辑单元）</mark></p>
 <img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/2025-02-25-19-02-14-image.png" title="" alt="" width="260">
@@ -246,6 +273,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag"># 计算机组成原理</a>
+          </div>
 
         
 
@@ -256,7 +286,10 @@
     <a href="/2025/02/24/hello-world/" rel="prev" title="Hello World">
       <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2025/03/02/%E5%BE%AE%E8%81%8A/" rel="next" title="微聊">
+      微聊 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -331,9 +364,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -404,6 +449,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
