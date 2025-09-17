@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>uni-app＋Express(v0.1)</title>
+      <link href="/2025/09/16/uni-app-Express/"/>
+      <url>/2025/09/16/uni-app-Express/</url>
+      
+        <content type="html"><![CDATA[<p>跨平台前端 + Node.js 后端的全栈开发</p><p>数据库：Sealos 云端 MongoDB</p><p>源码：<a href="https://github.com/yagyiqing/uni-app-Express-v0.1-">https://github.com/yagyiqing/uni-app-Express-v0.1-</a></p><p>初衷：传承社团文化</p><hr><p>前后端之间使用 HTTP协议传输数据，数据格式用 JSON</p><hr><p><strong>一共 8 个页面</strong>：登录页面，主页，社团背景页面，学习路线指引页面，项目积累页面，DayBreak通讯录页面，社团活动记录页面，社团文化页面</p><p><strong>页面样式分别如下：</strong></p><p>登录页面：</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172509110.png"></p><p>主页：</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916171955668.png"></p><p>社团背景页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172033962.png"></p><p>学习路线指引页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172110343.png"></p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172139975.png"></p><p>项目积累页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172240888.png"></p><p>DayBreak通讯录页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172302024.png"></p><p>社团活动页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172340224.png"></p><p>社团文化页面</p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172431079.png"></p><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20250916172755911.png"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 全栈开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>嘟嘟牛v4.54</title>
       <link href="/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/"/>
       <url>/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/</url>
