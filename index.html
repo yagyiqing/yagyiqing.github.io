@@ -216,7 +216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-27 20:42:27" itemprop="dateModified" datetime="2025-03-27T20:42:27+08:00">2025-03-27</time>
+                <time title="修改时间：2025-03-27 20:46:30" itemprop="dateModified" datetime="2025-03-27T20:46:30+08:00">2025-03-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,8 +270,6 @@
 <h3 id="分析RequestUtil-encodeDesMap-方法"><a href="#分析RequestUtil-encodeDesMap-方法" class="headerlink" title="分析RequestUtil.encodeDesMap 方法"></a>分析RequestUtil.encodeDesMap 方法</h3><p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/1743079108144.jpg" alt="1743079108144.jpg"></p>
 <h3 id="Hook-Utils-md5-方法查看传入的参数"><a href="#Hook-Utils-md5-方法查看传入的参数" class="headerlink" title="Hook Utils.md5 方法查看传入的参数"></a>Hook Utils.md5 方法查看传入的参数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function()&#123;</span><br><span class="line"> // 使用app的类</span><br><span class="line"> var jsonRequest = Java.use(&quot;com.dodonew.online.http.JsonRequest&quot;);</span><br><span class="line"> // 确认看是否找到</span><br><span class="line"> console.log(&quot;jsonRequest:&quot;,jsonRequest);</span><br><span class="line"></span><br><span class="line">jsonRequest.paraMap.implementation = function(a)&#123;</span><br><span class="line"> console.log(&quot;param1:&quot;,a);</span><br><span class="line"> this.paraMap();</span><br><span class="line"> &#125;</span><br><span class="line"> jsonRequest.addRequestMap.overload(&#x27;java.util.Map&#x27;, &#x27;int&#x27;).implementation = function(a,b)&#123;</span><br><span class="line"> console.log(&quot;addRequestMap param:&quot;,a,b);</span><br><span class="line"> var v = Java.cast(a,Java.use(&quot;java.util.HashMap&quot;));</span><br><span class="line"> console.log(&quot;addRequestMap param:&quot;,v.toString());</span><br><span class="line"></span><br><span class="line">this.addRequestMap(a,b);</span><br><span class="line"> &#125;</span><br><span class="line"> var utils = Java.use(&quot;com.dodonew.online.util.Utils&quot;);</span><br><span class="line"> utils.md5.implementation = function(a)&#123;</span><br><span class="line"> console.log(&quot;md5 param:&quot;,a);</span><br><span class="line"> var retval = this.md5(a);</span><br><span class="line"> console.log(&quot;md5 retval:&quot;,retval);</span><br><span class="line"> return retval;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-
-
 <p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/1743079145050.jpg" alt="1743079145050.jpg"></p>
 <p>测试下看是不是标准的md5</p>
 <p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/1743079160873.jpg" alt="1743079160873.jpg"></p>
@@ -291,8 +289,6 @@
 <p>利用所得密钥 对data 进行了 DES 加密</p>
 <h5 id="Hook-DESKeySpec-方式"><a href="#Hook-DESKeySpec-方式" class="headerlink" title="Hook DESKeySpec 方式"></a>Hook DESKeySpec 方式</h5><p>取 md5 加密后的前八位</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var base64 = Java.use(&quot;android.util.Base64&quot;);</span><br><span class="line"> var dESkeySpec = Java.use(&quot;javax.crypto.spec.DESKeySpec&quot;);</span><br><span class="line"> dESkeySpec.$init.overload(&#x27;[B&#x27;).implementation = function(a)&#123;</span><br><span class="line"> console.log(&quot;DESKeySpec param:&quot;,base64.encodeToString(a,0));</span><br><span class="line"> this.$init(a);</span><br></pre></td></tr></table></figure>
-
-
 
 <p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/1743079249013.jpg" alt="1743079249013.jpg"></p>
 <h1 id="算法复现"><a href="#算法复现" class="headerlink" title="算法复现"></a>算法复现</h1><p>Hook到的信息</p>
