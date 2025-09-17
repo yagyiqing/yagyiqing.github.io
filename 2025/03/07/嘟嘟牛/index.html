@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yagyiqing.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="抓包打开手机端小黄鸟 &#x2F; 进入嘟嘟牛登录页面 &#x2F; 输入账号和密码 &#x2F;点击登录 抓取到一个数据包，分析得到一个 “Encrypt”  查壳 pkid.jar 脱壳拖入Jadx 分析代码搜索 “Encrypt” 出现 两条 可疑结果 使用 Frida 定位 确定点击登录时会走哪条方法 Hook第一个可疑函数paraMap 1234567891011Java.perform">
 <meta property="og:type" content="article">
 <meta property="og:title" content="嘟嘟牛v4.54">
-<meta property="og:url" content="http://example.com/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/index.html">
+<meta property="og:url" content="https://yagyiqing.github.io/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/index.html">
 <meta property="og:site_name" content="行走云端">
 <meta property="og:description" content="抓包打开手机端小黄鸟 &#x2F; 进入嘟嘟牛登录页面 &#x2F; 输入账号和密码 &#x2F;点击登录 抓取到一个数据包，分析得到一个 “Encrypt”  查壳 pkid.jar 脱壳拖入Jadx 分析代码搜索 “Encrypt” 出现 两条 可疑结果 使用 Frida 定位 确定点击登录时会走哪条方法 Hook第一个可疑函数paraMap 1234567891011Java.perform">
 <meta property="og:locale" content="zh_CN">
@@ -50,7 +50,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/1743070291861.jpg">
 
-<link rel="canonical" href="http://example.com/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/">
+<link rel="canonical" href="https://yagyiqing.github.io/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/">
 
 
 <script id="page-configurations">
@@ -146,9 +146,9 @@
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-all">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>all</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/">
+    <link itemprop="mainEntityOfPage" href="https://yagyiqing.github.io/2025/03/07/%E5%98%9F%E5%98%9F%E7%89%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -422,8 +422,7 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+          <a href="/archives">
           <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
