@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e3ff85;
+  background: #c2865e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2674,21 +2674,15 @@ rgba(255,255,255,0.5)
   }
 }
 body {
-  background: url("/images/background.png");
+  background: url("/images/xiake2.png") no-repeat fixed center center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-}
-.main-inner > .sub-menu,
-.main-inner > .post-block,
-.main-inner > .tabs-comment,
-.main-inner > .comments,
-.main-inner > .pagination {
-  background: rgba(245,245,245,0.42);
-}
-body {
   color: #000;
+}
+.post-block {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .posts-expand .post-title-link {
   color: #000;
@@ -2698,4 +2692,13 @@ body {
 }
 .header-inner {
   background: rgba(255,255,255,0.8);
+}
+.content-wrap {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+.posts-expand,
+.post-body {
+  max-width: 1000px;
+  margin: 0 auto;
 }
