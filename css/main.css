@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c1ff16;
+  background: #9a2029;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2673,27 +2673,10 @@ rgba(255,255,255,0.5)
     margin: 8px 0 0;
   }
 }
-/* 让 html 和 body 始终撑满全文高度 */
-html,
 body {
-  min-height: 100%;
-  margin: 0;
-  height: auto;
-  background-color: #fff;
-}
-/* PC 背景：fixed + cover */
-body {
-  background: url("/images/xiake2.png") no-repeat center center fixed;
+  background: url("/images/xiake2.png") no-repeat fixed center center;
   background-size: cover;
-  background-attachment: fixed;
   color: #000;
-}
-/* 移动端：禁用 fixed，否则会出现错位和只显示顶部的问题 */
-@media screen and (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-    background-position: center top;
-  }
 }
 .post-block {
   background: rgba(255,255,255,0.85);
@@ -2718,11 +2701,4 @@ body {
 .post-body {
   max-width: 1000px;
   margin: 0 auto;
-}
-@media screen and (max-width: 768px) {
-  .posts-expand,
-  .post-body {
-    max-width: 100%;
-    padding: 0 15px;
-  }
 }
