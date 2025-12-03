@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c2865e;
+  background: #c4c75c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2674,9 +2674,16 @@ rgba(255,255,255,0.5)
   }
 }
 body {
-  background: url("/images/xiake2.png") no-repeat fixed center center;
+  background: url("/images/xiake2.png") no-repeat center center;
   background-size: cover;
+  background-attachment: fixed;
   color: #000;
+}
+@media screen and (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+  }
 }
 .post-block {
   background: rgba(255,255,255,0.85);
@@ -2701,4 +2708,11 @@ body {
 .post-body {
   max-width: 1000px;
   margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .posts-expand,
+  .post-body {
+    max-width: 100%;
+    padding: 0 15px;
+  }
 }
