@@ -175,6 +175,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2026/03/10/oj%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="行走云端">
+      <meta itemprop="description" content="学无止境">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行走云端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/03/10/oj%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">oj题目记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-03-10 11:44:30 / 修改时间：11:49:01" itemprop="dateCreated datePublished" datetime="2026-03-10T11:44:30+08:00">2026-03-10</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>839</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="判断闰年："><a href="#判断闰年：" class="headerlink" title="判断闰年："></a>判断闰年：</h1><p>判断某个年份是不是闰年，如果是闰年，请输出yes，否则请输出no</p>
+<p>输入: 一行，只有一个整数x (0&lt;&#x3D;x &lt;&#x3D;10000)</p>
+<p>输出: 只有一行字符</p>
+<p>$$<br>闰年：<br>1.年份能被4整除并且不能被100整除<br>2.年份能被400整除<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int year = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;year);</span><br><span class="line">	if (year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0)) &#123;</span><br><span class="line">		printf(&quot;yes&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		printf(&quot;no&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="判断回文数"><a href="#判断回文数" class="headerlink" title="判断回文数"></a>判断回文数</h1><p>输入一个整型数，判断是否是对称数，如果是，输出yes，否则输出no，不用考虑这个整型数过大，int类型存不下，不用考虑负值；</p>
+<p>例如 12321是对称数，输出yes，124421是对称数，输出yes，1231不是对称数，输出no</p>
+<p>$$<br>原数 &#x3D;&#x3D; 反转后的数<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int i = 0;</span><br><span class="line">	int i2 = 0;</span><br><span class="line">	int tmp = 0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;i);</span><br><span class="line">	i2 = i;</span><br><span class="line">	while (i) &#123;</span><br><span class="line">		tmp = tmp * 10 + i % 10;</span><br><span class="line">		i = i / 10;</span><br><span class="line">	&#125;</span><br><span class="line">	if (tmp == i2) &#123;</span><br><span class="line">		printf(&quot;yes&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		printf(&quot;no&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2025/12/16/bilibiliv7-31-0-anti-frida/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1139,7 +1221,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1148,6 +1230,11 @@
           
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -1173,7 +1260,7 @@
 <div class="copyright">
   
   &copy; 2025-02 – 
-  <span itemprop="copyrightYear">2025</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
