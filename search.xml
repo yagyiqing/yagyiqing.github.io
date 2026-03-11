@@ -8,12 +8,12 @@
       <link href="/2026/03/10/oj%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/"/>
       <url>/2026/03/10/oj%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<h1 id="判断闰年："><a href="#判断闰年：" class="headerlink" title="判断闰年："></a>判断闰年：</h1><p>判断某个年份是不是闰年，如果是闰年，请输出yes，否则请输出no</p><p>输入: 一行，只有一个整数x (0&lt;&#x3D;x &lt;&#x3D;10000)</p><p>输出: 只有一行字符</p><blockquote><p>闰年：<br>1.年份能被4整除并且不能被100整除<br>2.年份能被400整除</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int year = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;year);</span><br><span class="line">    if (year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0)) &#123;</span><br><span class="line">        printf(&quot;yes&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;no&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="判断回文数"><a href="#判断回文数" class="headerlink" title="判断回文数"></a>判断回文数</h1><p>输入一个整型数，判断是否是对称数，如果是，输出yes，否则输出no，不用考虑这个整型数过大，int类型存不下，不用考虑负值；</p><p>例如 12321是对称数，输出yes，124421是对称数，输出yes，1231不是对称数，输出no</p><blockquote><p>原数 &#x3D;&#x3D; 反转后的数</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int i = 0;</span><br><span class="line">    int i2 = 0;</span><br><span class="line">    int tmp = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;i);</span><br><span class="line">    i2 = i;</span><br><span class="line">    while (i) &#123;</span><br><span class="line">        tmp = tmp * 10 + i % 10;</span><br><span class="line">        i = i / 10;</span><br><span class="line">    &#125;</span><br><span class="line">    if (tmp == i2) &#123;</span><br><span class="line">        printf(&quot;yes&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;no&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="判断闰年："><a href="#判断闰年：" class="headerlink" title="判断闰年："></a>判断闰年：</h1><p>判断某个年份是不是闰年，如果是闰年，请输出yes，否则请输出no</p><p>输入: 一行，只有一个整数x (0&lt;&#x3D;x &lt;&#x3D;10000)</p><p>输出: 只有一行字符</p><blockquote><p>闰年：<br>1.年份能被4整除并且不能被100整除<br>2.年份能被400整除</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int year = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;year);</span><br><span class="line">    if (year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0)) &#123;</span><br><span class="line">        printf(&quot;yes&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;no&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="判断回文数"><a href="#判断回文数" class="headerlink" title="判断回文数"></a>判断回文数</h1><p>输入一个整型数，判断是否是对称数，如果是，输出yes，否则输出no，不用考虑这个整型数过大，int类型存不下，不用考虑负值；</p><p>例如 12321是对称数，输出yes，124421是对称数，输出yes，1231不是对称数，输出no</p><blockquote><p>原数 &#x3D;&#x3D; 反转后的数</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int i = 0;</span><br><span class="line">    int i2 = 0;</span><br><span class="line">    int tmp = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;i);</span><br><span class="line">    i2 = i;</span><br><span class="line">    while (i) &#123;</span><br><span class="line">        tmp = tmp * 10 + i % 10;</span><br><span class="line">        i = i / 10;</span><br><span class="line">    &#125;</span><br><span class="line">    if (tmp == i2) &#123;</span><br><span class="line">        printf(&quot;yes&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;no&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="枚举思想（暴力法）"><a href="#枚举思想（暴力法）" class="headerlink" title="枚举思想（暴力法）"></a>枚举思想（暴力法）</h1><blockquote><p>面对一个问题时，直接将问题的所有可能性全部列出，一个一个的去检查是否符合题目的要求</p><p>故 枚举思想的核心便是用 循环结构 （for,while）去解决问题</p></blockquote>]]></content>
       
       
       <categories>
           
-          <category> ‘c’ </category>
+          <category> c </category>
           
       </categories>
       
@@ -32,7 +32,7 @@
       
       <categories>
           
-          <category> android 过检测 </category>
+          <category> Android逆向 </category>
           
       </categories>
       
@@ -51,7 +51,7 @@
       
       <categories>
           
-          <category> Android 算法逆向 </category>
+          <category> Android逆向 </category>
           
       </categories>
       
@@ -89,7 +89,7 @@
       
       <categories>
           
-          <category> Android 协议逆向 </category>
+          <category> Android逆向 </category>
           
       </categories>
       
@@ -108,7 +108,7 @@
       
       <categories>
           
-          <category> android 应用全栈开发 </category>
+          <category> Android开发 </category>
           
       </categories>
       
