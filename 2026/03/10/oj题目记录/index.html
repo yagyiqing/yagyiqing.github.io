@@ -28,8 +28,10 @@
 <meta property="og:description" content="判断闰年：判断某个年份是不是闰年，如果是闰年，请输出yes，否则请输出no 输入: 一行，只有一个整数x (0&lt;&#x3D;x &lt;&#x3D;10000) 输出: 只有一行字符  闰年：1.年份能被4整除并且不能被100整除2.年份能被400整除  123456789101112131415# define  _CRT_SECURE_NO_WARNINGS#include &lt;st">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260313124625042.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260314103446846.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260314105714435.png">
 <meta property="article:published_time" content="2026-03-10T03:44:30.000Z">
-<meta property="article:modified_time" content="2026-03-13T04:47:19.957Z">
+<meta property="article:modified_time" content="2026-03-14T03:58:19.912Z">
 <meta property="article:author" content="行走云端">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260313124625042.png">
@@ -220,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-13 12:47:19" itemprop="dateModified" datetime="2026-03-13T12:47:19+08:00">2026-03-13</time>
+                <time title="修改时间：2026-03-14 11:58:19" itemprop="dateModified" datetime="2026-03-14T11:58:19+08:00">2026-03-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -282,7 +284,7 @@
 <p>str c spn [c -&gt; complement(补集，不包含)，spn -&gt;span(连续长度)]</p>
 <p>函数返回<em>str1</em> 开头连续n个字符都不含字符串<em>str2</em>内字符的字符数。</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	char input[100];</span><br><span class="line">	fgets(input, 100, stdin);</span><br><span class="line">	input[strcspn(input, &quot;\n&quot;)] = &#x27;\0&#x27;;  // 去掉换行</span><br><span class="line">	char output[100];</span><br><span class="line">	for (int i = 0; i &lt; strlen(input); i++) &#123;</span><br><span class="line">		output[i] = input[strlen(input) -1-i];</span><br><span class="line">	&#125;</span><br><span class="line">	output[strlen(input)] = &#x27;\0&#x27;;</span><br><span class="line"></span><br><span class="line">	/*fputs(output, stdout);</span><br><span class="line">	printf(&quot;\n&quot;);*/</span><br><span class="line">	int result = strcmp(input, output);</span><br><span class="line"></span><br><span class="line">	if (result &lt; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, -1);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (result &gt; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, 1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	else &#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    char input[100];</span><br><span class="line">    fgets(input, 100, stdin);</span><br><span class="line">    input[strcspn(input, &quot;\n&quot;)] = &#x27;\0&#x27;;  // 去掉换行</span><br><span class="line">    char output[100];</span><br><span class="line">    for (int i = 0; i &lt; strlen(input); i++) &#123;</span><br><span class="line">        output[i] = input[strlen(input) -1-i];</span><br><span class="line">    &#125;</span><br><span class="line">    output[strlen(input)] = &#x27;\0&#x27;;</span><br><span class="line"></span><br><span class="line">    /*fputs(output, stdout);</span><br><span class="line">    printf(&quot;\n&quot;);*/</span><br><span class="line">    int result = strcmp(input, output);</span><br><span class="line"></span><br><span class="line">    if (result &lt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d\n&quot;, -1);</span><br><span class="line">    &#125;</span><br><span class="line">    else if (result &gt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d\n&quot;, 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    else &#123;</span><br><span class="line">        printf(&quot;%d\n&quot;, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果不去掉 input的’\n’，那么’\n’也会跟着被反转</p>
 <p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260313124625042.png"> </p>
@@ -316,6 +318,51 @@
 <p>注意： pow(i,3) 函数的返回值是 double 数据类型</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    int m = 0;</span><br><span class="line">    for (int i = 1; i &lt; 10; i++) &#123;</span><br><span class="line">        for (int k = 0; k &lt; 10; k++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">                m = i * 100 + k * 10 + j;</span><br><span class="line">                if (i*i*i + j * j * j + k * k * k == m) &#123;</span><br><span class="line">                    printf(&quot;%d\n&quot;, m);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分治思想"><a href="#分治思想" class="headerlink" title="分治思想"></a>分治思想</h1><blockquote>
+<p>无法从全局解决问题，那就从局部解决问题，这便是分治法（分而治之）</p>
+<p>大问题转移到小问题，小问题有解决方法</p>
+</blockquote>
+<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><p>假设你正在爬一个楼梯。它总共有n 阶台阶，每次你只能爬 1 阶，或者爬 2 阶</p>
+<p>问：你有多少种不同的方法可以爬到楼顶</p>
+<blockquote>
+<p>num为 n 的数量 &#x3D; num 为 n-1 的数量 + num 为 n-2 的数量</p>
+<p>当n &gt;2 时，最后一步要么跨1个台阶，要么跨2个台阶，两者互斥</p>
+<p>逐级往下分</p>
+<p>假设n &#x3D; 5，f(5) &#x3D; f(3) 【最后一步跨两个台阶】+ f(4)【最后一步跨一个台阶】</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int f(int n) &#123;</span><br><span class="line">	if (n &gt; 2) &#123;</span><br><span class="line">		int result = f(n - 1) + f(n - 2);</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(n == 2)&#123;</span><br><span class="line">		return 2;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	else if (n == 1) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n = 4;</span><br><span class="line">	printf(&quot;%d&quot;, f(n));</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>有 n 个从小到大排列的圆盘，需要将圆盘全部就移动到另一个柱子上，并遵守：</p>
+<ol>
+<li><p>每次只能移动一个圆盘</p>
+</li>
+<li><p>移动过程中，大盘不能放在小盘上面</p>
+</li>
+<li><p>只能移动最顶端的圆盘</p>
+</li>
+</ol>
+<img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260314103446846.png" title="" alt="" width="554">
+
+<blockquote>
+<p>大问题：</p>
+<p>将上面的 前 n-1 个盘子 从 A移动到B</p>
+<p>将下面的 n 个盘子从 A移到 C</p>
+<p>将 n-1 个盘子从 B移到 C</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260314105714435.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">void hanoi(int n, char from, char buffer, char to) &#123;</span><br><span class="line">	if (n &gt; 1) &#123;</span><br><span class="line">		//前 n - 1个圆盘 从 from 到 buffer</span><br><span class="line">		hanoi(n - 1, from, to, buffer);</span><br><span class="line">		// 第n 个盘子从 form 到 to</span><br><span class="line">		hanoi(1, from, buffer, to);</span><br><span class="line">		// 前 n - 1个圆盘 从 buffer 到 to</span><br><span class="line">		hanoi(n - 1, buffer, from, to);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (n == 1) &#123;</span><br><span class="line">		printf(&quot;move %c to %c\n&quot;, from, to);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n = 4;</span><br><span class="line">	hanoi(n, &#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>对一个无序数组，进行排序</p>
+<blockquote>
+<p>大问题转移成小问题;</p>
+<p>左侧和右侧分别是有序的数组后进行合并</p>
+<p>小问题：</p>
+<p>当数组只有 1 个元素的时候（left &#x3D;&#x3D; right）数组字然有序</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">// 归并排序</span><br><span class="line">void merge(int* arr, int* temp, int left, int right, int mid) &#123;</span><br><span class="line">	// 将 arr 的内容备份到 tmp中</span><br><span class="line">	for (int i = left; i &lt;= right; ++i) &#123;</span><br><span class="line">		temp[i] = arr[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// i访问左半边，j访问右半边，k存放结果</span><br><span class="line">	int i, j, k;</span><br><span class="line">	for (i = left, j = mid + 1, k = left; i &lt;= mid &amp;&amp; j &lt;= right; ++k) &#123;</span><br><span class="line">		if (temp[i] &lt; temp[j]) &#123;</span><br><span class="line">			arr[k] = temp[i];</span><br><span class="line">			++i;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			arr[k] = temp[j];</span><br><span class="line">			++j;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	while (i &lt;= mid) &#123;</span><br><span class="line">		arr[k] = temp[i];</span><br><span class="line">		++i;</span><br><span class="line">		++k;</span><br><span class="line">	&#125;</span><br><span class="line">	while (j &lt;= right) &#123;</span><br><span class="line">		arr[k] = temp[j];</span><br><span class="line">		++j;</span><br><span class="line">		++k;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(int* arr, int* temp, int left, int right) &#123;</span><br><span class="line">	if (left &lt; right) &#123;</span><br><span class="line">		int mid = (left + right) / 2;</span><br><span class="line">		mergeSort(arr, temp, left, mid);</span><br><span class="line">		mergeSort(arr, temp, mid + 1, right);</span><br><span class="line">		merge(arr, temp, left, right, mid);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int arr[] = &#123; 6,5,9,8,2,3,4,7,10,1 &#125;;</span><br><span class="line">	int temp[10];</span><br><span class="line">	mergeSort(arr, temp, 0, 9);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -393,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">判断闰年：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">判断回文数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%86%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">逆转字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%A2%E9%92%9E%E7%A5%A8"><span class="nav-number">4.</span> <span class="nav-text">换钞票</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E6%80%9D%E6%83%B3%EF%BC%88%E6%9A%B4%E5%8A%9B%E6%B3%95%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">枚举思想（暴力法）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%AE%8C%E6%95%B0"><span class="nav-number">5.1.</span> <span class="nav-text">找完数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B4%E4%BB%99%E8%8A%B1%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">水仙花数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">判断闰年：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">判断回文数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%86%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">逆转字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%A2%E9%92%9E%E7%A5%A8"><span class="nav-number">4.</span> <span class="nav-text">换钞票</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E6%80%9D%E6%83%B3%EF%BC%88%E6%9A%B4%E5%8A%9B%E6%B3%95%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">枚举思想（暴力法）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%AE%8C%E6%95%B0"><span class="nav-number">5.1.</span> <span class="nav-text">找完数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B4%E4%BB%99%E8%8A%B1%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">水仙花数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%B2%BB%E6%80%9D%E6%83%B3"><span class="nav-number">6.</span> <span class="nav-text">分治思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">6.1.</span> <span class="nav-text">爬楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="nav-number">6.2.</span> <span class="nav-text">汉诺塔问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">6.3.</span> <span class="nav-text">归并排序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -452,13 +499,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">69k</span>
+    <span title="站点总字数">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:03</span>
+    <span title="站点阅读时长">1:05</span>
 </div>
 
 
