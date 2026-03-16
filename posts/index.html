@@ -185,6 +185,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2026/03/16/%E5%8D%95%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="行走云端">
+      <meta itemprop="description" content="学无止境">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行走云端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/03/16/%E5%8D%95%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">单链表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-03-16 11:26:08 / 修改时间：12:20:32" itemprop="dateCreated datePublished" datetime="2026-03-16T11:26:08+08:00">2026-03-16</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>887</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><h2 id="头插法"><a href="#头插法" class="headerlink" title="头插法"></a>头插法</h2><p>首先需要知道 c 语言的<mark>值传递机制</mark>：把一个变量传给函数时，函数拿到的只是这个变量的一个 副本，在函数中对这个变量进行涂涂改改，并不影响 原件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct node_s&#123;</span><br><span class="line">	// 数据域</span><br><span class="line">	int data;</span><br><span class="line">	//指针域</span><br><span class="line">	struct node_s* next;</span><br><span class="line">&#125;node_t;</span><br><span class="line"></span><br><span class="line">//传入的是 node_t 的地址</span><br><span class="line">node_t* head_insert(node_t* phead, int data) &#123;</span><br><span class="line">	// 1.在内存的堆空间中给新结点申请内存 &amp;&amp; 初始化</span><br><span class="line">	node_t* pnew_node = (node_t *)malloc(sizeof(node_t));</span><br><span class="line">	pnew_node-&gt;data = data;</span><br><span class="line">	pnew_node-&gt;next = NULL;</span><br><span class="line"></span><br><span class="line">	// 2.插入</span><br><span class="line">	pnew_node -&gt;next = phead;</span><br><span class="line">	phead = pnew_node;</span><br><span class="line">	//把新节点的地址甩回去，否则主函数中phead中存的地址不会变</span><br><span class="line">	return pnew_node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	node_t* phead = NULL;  // phead是一个指向node_t数据类型的指针</span><br><span class="line">	phead = head_insert(phead, 1);  // &amp;phead 是将指针再取地址</span><br><span class="line">	phead = head_insert(phead, 2);</span><br><span class="line">	phead = head_insert(phead, 3);</span><br><span class="line">	node_t* temp = phead;</span><br><span class="line">	while (temp != NULL) &#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, temp-&gt;data);</span><br><span class="line">		temp = temp-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2026/03/10/oj%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +290,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-14 11:58:19" itemprop="dateModified" datetime="2026-03-14T11:58:19+08:00">2026-03-14</time>
+                <time title="修改时间：2026-03-16 11:23:52" itemprop="dateModified" datetime="2026-03-16T11:23:52+08:00">2026-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -325,7 +399,7 @@
 <p>逐级往下分</p>
 <p>假设n &#x3D; 5，f(5) &#x3D; f(3) 【最后一步跨两个台阶】+ f(4)【最后一步跨一个台阶】</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int f(int n) &#123;</span><br><span class="line">	if (n &gt; 2) &#123;</span><br><span class="line">		int result = f(n - 1) + f(n - 2);</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(n == 2)&#123;</span><br><span class="line">		return 2;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	else if (n == 1) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n = 4;</span><br><span class="line">	printf(&quot;%d&quot;, f(n));</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int f(int n) &#123;</span><br><span class="line">    if (n &gt; 2) &#123;</span><br><span class="line">        int result = f(n - 1) + f(n - 2);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(n == 2)&#123;</span><br><span class="line">        return 2;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else if (n == 1) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n = 4;</span><br><span class="line">    printf(&quot;%d&quot;, f(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>有 n 个从小到大排列的圆盘，需要将圆盘全部就移动到另一个柱子上，并遵守：</p>
 <ol>
@@ -345,9 +419,7 @@
 <p>将 n-1 个盘子从 B移到 C</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260314105714435.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">void hanoi(int n, char from, char buffer, char to) &#123;</span><br><span class="line">	if (n &gt; 1) &#123;</span><br><span class="line">		//前 n - 1个圆盘 从 from 到 buffer</span><br><span class="line">		hanoi(n - 1, from, to, buffer);</span><br><span class="line">		// 第n 个盘子从 form 到 to</span><br><span class="line">		hanoi(1, from, buffer, to);</span><br><span class="line">		// 前 n - 1个圆盘 从 buffer 到 to</span><br><span class="line">		hanoi(n - 1, buffer, from, to);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (n == 1) &#123;</span><br><span class="line">		printf(&quot;move %c to %c\n&quot;, from, to);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n = 4;</span><br><span class="line">	hanoi(n, &#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">void hanoi(int n, char from, char buffer, char to) &#123;</span><br><span class="line">    if (n &gt; 1) &#123;</span><br><span class="line">        //前 n - 1个圆盘 从 from 到 buffer</span><br><span class="line">        hanoi(n - 1, from, to, buffer);</span><br><span class="line">        // 第n 个盘子从 form 到 to</span><br><span class="line">        hanoi(1, from, buffer, to);</span><br><span class="line">        // 前 n - 1个圆盘 从 buffer 到 to</span><br><span class="line">        hanoi(n - 1, buffer, from, to);</span><br><span class="line">    &#125;</span><br><span class="line">    else if (n == 1) &#123;</span><br><span class="line">        printf(&quot;move %c to %c\n&quot;, from, to);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n = 4;</span><br><span class="line">    hanoi(n, &#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>对一个无序数组，进行排序</p>
 <blockquote>
@@ -356,7 +428,7 @@
 <p>小问题：</p>
 <p>当数组只有 1 个元素的时候（left &#x3D;&#x3D; right）数组字然有序</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">// 归并排序</span><br><span class="line">void merge(int* arr, int* temp, int left, int right, int mid) &#123;</span><br><span class="line">	// 将 arr 的内容备份到 tmp中</span><br><span class="line">	for (int i = left; i &lt;= right; ++i) &#123;</span><br><span class="line">		temp[i] = arr[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// i访问左半边，j访问右半边，k存放结果</span><br><span class="line">	int i, j, k;</span><br><span class="line">	for (i = left, j = mid + 1, k = left; i &lt;= mid &amp;&amp; j &lt;= right; ++k) &#123;</span><br><span class="line">		if (temp[i] &lt; temp[j]) &#123;</span><br><span class="line">			arr[k] = temp[i];</span><br><span class="line">			++i;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			arr[k] = temp[j];</span><br><span class="line">			++j;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	while (i &lt;= mid) &#123;</span><br><span class="line">		arr[k] = temp[i];</span><br><span class="line">		++i;</span><br><span class="line">		++k;</span><br><span class="line">	&#125;</span><br><span class="line">	while (j &lt;= right) &#123;</span><br><span class="line">		arr[k] = temp[j];</span><br><span class="line">		++j;</span><br><span class="line">		++k;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(int* arr, int* temp, int left, int right) &#123;</span><br><span class="line">	if (left &lt; right) &#123;</span><br><span class="line">		int mid = (left + right) / 2;</span><br><span class="line">		mergeSort(arr, temp, left, mid);</span><br><span class="line">		mergeSort(arr, temp, mid + 1, right);</span><br><span class="line">		merge(arr, temp, left, right, mid);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int arr[] = &#123; 6,5,9,8,2,3,4,7,10,1 &#125;;</span><br><span class="line">	int temp[10];</span><br><span class="line">	mergeSort(arr, temp, 0, 9);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># define  _CRT_SECURE_NO_WARNINGS</span><br><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">// 归并排序</span><br><span class="line">void merge(int* arr, int* temp, int left, int right, int mid) &#123;</span><br><span class="line">    // 将 arr 的内容备份到 tmp中</span><br><span class="line">    for (int i = left; i &lt;= right; ++i) &#123;</span><br><span class="line">        temp[i] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // i访问左半边，j访问右半边，k存放结果</span><br><span class="line">    int i, j, k;</span><br><span class="line">    for (i = left, j = mid + 1, k = left; i &lt;= mid &amp;&amp; j &lt;= right; ++k) &#123;</span><br><span class="line">        if (temp[i] &lt; temp[j]) &#123;</span><br><span class="line">            arr[k] = temp[i];</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            arr[k] = temp[j];</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    while (i &lt;= mid) &#123;</span><br><span class="line">        arr[k] = temp[i];</span><br><span class="line">        ++i;</span><br><span class="line">        ++k;</span><br><span class="line">    &#125;</span><br><span class="line">    while (j &lt;= right) &#123;</span><br><span class="line">        arr[k] = temp[j];</span><br><span class="line">        ++j;</span><br><span class="line">        ++k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void mergeSort(int* arr, int* temp, int left, int right) &#123;</span><br><span class="line">    if (left &lt; right) &#123;</span><br><span class="line">        int mid = (left + right) / 2;</span><br><span class="line">        mergeSort(arr, temp, left, mid);</span><br><span class="line">        mergeSort(arr, temp, mid + 1, right);</span><br><span class="line">        merge(arr, temp, left, right, mid);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int arr[] = &#123; 6,5,9,8,2,3,4,7,10,1 &#125;;</span><br><span class="line">    int temp[10];</span><br><span class="line">    mergeSort(arr, temp, 0, 9);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1346,7 +1418,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1355,6 +1427,11 @@
           
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -1390,13 +1467,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:05</span>
+    <span title="站点阅读时长">1:06</span>
 </div>
 
 
