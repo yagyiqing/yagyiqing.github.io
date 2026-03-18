@@ -185,6 +185,146 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2026/03/18/c%E8%A1%A5%E4%B8%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="行走云端">
+      <meta itemprop="description" content="学无止境">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行走云端">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/03/18/c%E8%A1%A5%E4%B8%81/" class="post-title-link" itemprop="url">c补丁</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-03-18 08:40:18 / 修改时间：09:34:23" itemprop="dateCreated datePublished" datetime="2026-03-18T08:40:18+08:00">2026-03-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="http://47.115.215.212:8080/cref/index.html">C语言参考</a></p>
+<h1 id="C语言的值传递机制："><a href="#C语言的值传递机制：" class="headerlink" title="C语言的值传递机制："></a>C语言的值传递机制：</h1><p> 值传递拿到的是复印件，也就是说在被调用函数中对复印件涂涂画画，并不影响原件</p>
+<h2 id="C-引用："><a href="#C-引用：" class="headerlink" title="C++引用："></a>C++引用：</h2><p>c++ 风格的编译器中采用引用传递机制，也就是说拿到的就是主函数中的变量，只不过改变了一个名字</p>
+<blockquote>
+<p>&amp; 在不同的位置，不同的语境下，功能完全不同</p>
+<p>在类型后面是外号（引用）char* &amp;p_ref；</p>
+<p>在变量前面是地址（取地址）&amp;a, c++的引用；</p>
+<p>在两数中间是计算（位运算）a &amp; b</p>
+</blockquote>
+<h1 id="C语言风格的字符串："><a href="#C语言风格的字符串：" class="headerlink" title="C语言风格的字符串："></a>C语言风格的字符串：</h1><blockquote>
+<p>C语言中没有专门为字符串使用的数据类型，故声明一个字符串需要用到字符数组  char s[20]</p>
+</blockquote>
+<p>C字符串 末尾用<mark> ‘\0’ </mark>作为字符串结束标志, 或手动添加或编译器自动添加，故申请的字符串数组的长度 ≥ 字符串长度 + 1</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318084650528.png"></p>
+<p>strlen() 函数获取字符串有效长度</p>
+<p>strcmp()  字符串比大小，比的是ASCII码的值，并且是逐字符比较</p>
+<blockquote>
+<p>“a” 与 “abandon”  ,’a’ &#x3D; ‘a’, ‘\0’ &lt; ‘b’,  故 “abandon” &gt; “a”</p>
+</blockquote>
+<h1 id="scanf-“-c”"><a href="#scanf-“-c”" class="headerlink" title="scanf() “%c”:"></a>scanf() “%c”:</h1><p>scanf() 中 %c 会输入一切字符，包括空白字符，避免方法： 在%c 前加空格，scanf(“ %c”,&amp;ch)</p>
+<h1 id="结构体对齐问题："><a href="#结构体对齐问题：" class="headerlink" title="结构体对齐问题："></a>结构体对齐问题：</h1><p>结构体在内存中所占大小 ≥ 结构体内数据类型长度相加</p>
+<p><a target="_blank" rel="noopener" href="https://app.yinxiang.com/Home.action?hpts=undefined&loginToken=S=s25:U=2f80984:E=19a7b511c18:C=19a7b1a2d9a:P=5fd:A=en-web:V=3:H=89294618315bfcbada945fce8158f2ef&wechatLogin=true&rememberMe=false&login=true&hptsh=undefined&hpts=undefined&loginToken=S=s25:U=2f80984:E=19cf4508020:C=19cf41991a1:P=5fd:A=en-web:V=3:H=3c4f6c3ef7ee30af83deeff7b202c091&wechatLogin=true&rememberMe=true&rememberMe=true&login=true&hptsh=undefined#n=afd91edc-b9b4-4d2c-9b58-cf74e064377c&s=s25&b=2fe13a71-4c36-4ef4-942e-320694c2be66&ses=4&sh=1&sds=5&">对齐准则</a></p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title=". 运算符"></a>. 运算符</h2><p>结构体的指针变量访问结构体变量时</p>
+<blockquote>
+<p>struct stiudent_s *pstu &#x3D; &stu;</p>
+<p>(*pstu).id   通常会简写为 pstu -&gt; id</p>
+</blockquote>
+<h1 id="数组作为函数参数长度丢失问题："><a href="#数组作为函数参数长度丢失问题：" class="headerlink" title="数组作为函数参数长度丢失问题："></a>数组作为函数参数长度丢失问题：</h1><p>一位数组 arr[] 作为函数参数，会丢失长度，退化为一个地址</p>
+<blockquote>
+<p>这就是为什么 scanf(“%s”,str), str前不用加 &amp;str</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318092018663.png"></p>
+<p>二维数组  arr[][b] 作为函数参数，会丢失行的数据</p>
+<h1 id="指针的偏移"><a href="#指针的偏移" class="headerlink" title="指针的偏移 :"></a>指针的偏移 :</h1><p>对指针做偏移   ——–&gt;  访问数组的元素</p>
+<blockquote>
+<p>int arr[3] &#x3D; {1,2,3};</p>
+<p>int *p &#x3D; arr;</p>
+<p>p+n &#x3D; p中存的地址 + n* sizeof(int);</p>
+</blockquote>
+<p>指针可以使用 [ ] 运算符</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318091933841.png"></p>
+<h2 id="野指针、空指针"><a href="#野指针、空指针" class="headerlink" title="野指针、空指针"></a>野指针、空指针</h2><p><strong>野指针</strong>：随便找一个整数赋值给指针变量</p>
+<p><strong>空指针</strong>：地址为零的指针变量，一旦犯错一定会报错</p>
+<blockquote>
+<p>int *p &#x3D; NULL</p>
+</blockquote>
+<h1 id="堆空间"><a href="#堆空间" class="headerlink" title="堆空间:"></a>堆空间:</h1><p>需求：被调用函数弹出栈帧后，局部变量仍然存在，那么就用堆空间解决</p>
+<img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318092141599.png" title="" alt="" width="589">
+
+<p><a target="_blank" rel="noopener" href="http://47.115.215.212:8080/cref/stdmem_details.html#malloc">malloc()</a>:动态申请空间</p>
+<p><a target="_blank" rel="noopener" href="http://47.115.215.212:8080/cref/stdmem_details.html#free">free()</a>：动态释放空间</p>
+<h1 id="运算符优先级："><a href="#运算符优先级：" class="headerlink" title="运算符优先级："></a>运算符优先级：</h1><p>单目运算符 &gt; 算数运算符（+，-）&gt; 关系运算符（&#x3D;&#x3D;）&gt; 逻辑运算符（&amp;&amp;，||）&gt; 赋值运算符（&#x3D;，&gt;）</p>
+<p> </p>
+<h1 id="自增"><a href="#自增" class="headerlink" title="自增"></a>自增</h1><p>++i：先自增后返回，所以拿到的内容是新的</p>
+<p>i++：先返回后自增，所以拿到的内容是原来的数</p>
+<h1 id="continue、break"><a href="#continue、break" class="headerlink" title="continue、break:"></a>continue、break:</h1><p>continue跳出本次循环</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318093351216.png"></p>
+<p>break 跳出单层循环，把循环停掉</p>
+<p><img src="https://raw.githubusercontent.com/yagyiqing/ImageHosting/master/20260318093411981.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yagyiqing/yagyiqing.github.io/2026/03/16/%E5%8D%95%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1466,7 +1606,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1510,13 +1650,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">77k</span>
+    <span title="站点总字数">78k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:10</span>
+    <span title="站点阅读时长">1:11</span>
 </div>
 
 
